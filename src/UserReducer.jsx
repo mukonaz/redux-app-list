@@ -1,33 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { userList } from "./Data";
+import { createSlice } from '@reduxjs/toolkit';
 
-const userSlice = createSlice({
-    name: "users",
-    initialState: userList,
-    reducers:{
-        addUser: (state, action) =>{
-            state.push(action.payload)
+export const userSlice = createSlice({
+    name: 'users',
+    initialState: [],
+    reducers: {
+        setUsers: (state, action) => {
+            return action.payload;
         },
-        updateUser: (state, action) => {
-            const {id, name, email} = action.payload;
-            const uu = state.find(user => user.id == id);
-            if(uu){
-                uu.name = name;
-                uu.email = email;
-
-            }
-
+        addUser: (state, action) => {
+            state.push(action.payload);
         },
         deleteUser: (state, action) => {
-            const {id} = action.payload;
-            const uu = state.find(user => user.id == id);
-            if(uu){
-                return state.filter (f => f.id !==id)
-            }
+            return state.filter(user => user.id !== action.payload.id);
+        },
+        // Add other reducers like editUser if needed
+    },
+});
 
-        }
-    }
-})
+export const { setUsers, addUser, deleteUser } = userSlice.actions;
 
-export const {addUser, updateUser, deleteUser} = userSlice.actions;
-export default userSlice.reducer
+export default userSlice.reducer;

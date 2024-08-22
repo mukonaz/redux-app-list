@@ -7,8 +7,8 @@ import UserReducer from "./UserReducer";
 
 const store = configureStore({
     reducer:{
-        users: UserReducer
-    }
+        users: UserReducer,
+    },
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
