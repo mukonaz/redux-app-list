@@ -13,10 +13,17 @@ export const userSlice = createSlice({
         deleteUser: (state, action) => {
             return state.filter(user => user.id !== action.payload.id);
         },
-        // Add other reducers like editUser if needed
+        updateUser: (state, action) => {
+            const { id, name, email } = action.payload;
+            const existingUser = state.find(user => user.id === id);
+            if (existingUser) {
+                existingUser.name = name;
+                existingUser.email = email;
+            }
+        }
     },
 });
 
-export const { setUsers, addUser, deleteUser } = userSlice.actions;
+export const { setUsers, addUser, deleteUser,updateUser } = userSlice.actions;
 
 export default userSlice.reducer;

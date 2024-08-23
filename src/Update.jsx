@@ -23,7 +23,7 @@ function Update() {
             reader.onloadend = () => {
                 setPhoto(reader.result);
             };
-            reader.readAsDataURL(file); // Convert file to base64 string
+            reader.readAsDataURL(file);
         }
     };
 

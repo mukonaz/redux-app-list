@@ -16,7 +16,7 @@ function Create() {
             reader.onloadend = () => {
                 setPhoto(reader.result);
             };
-            reader.readAsDataURL(file); // Convert file to base64 string
+            reader.readAsDataURL(file); 
         }
     };
 
@@ -24,7 +24,7 @@ function Create() {
         event.preventDefault();
 
         const newUser = {
-            id: Date.now(), // Using timestamp as a unique ID
+            id: Date.now(), 
             name,
             quantity,
             comments,
