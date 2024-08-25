@@ -7,6 +7,7 @@ function Create() {
     const [quantity, setQuantity] = useState('');
     const [comments, setComments] = useState('');
     const [photo, setPhoto] = useState(null);
+    const [category, setCategory] = useState(''); // State for category
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
@@ -29,7 +30,9 @@ function Create() {
             quantity,
             comments,
             photo,
+            category, // Include the category in the new user data
         };
+        console.log('Submitting:', newUser); 
 
         try {
             const response = await fetch('http://localhost:3000/users', {
@@ -70,6 +73,23 @@ function Create() {
                             <label htmlFor="quantity">Quantity:</label>
                             <input type="text" name="quantity" className="form-control" placeholder="How many items"
                                 onChange={e => setQuantity(e.target.value)} />
+                        </div>
+                        <br />
+                        <div>
+                            <label htmlFor="category">Category:</label>
+                            <select 
+                                name="category" 
+                                className="form-control"
+                                value={category}
+                                onChange={e => setCategory(e.target.value)}
+                            >
+                                <option value="">Select a category</option>
+                                <option value="household">Household</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="groceries">Groceries</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                         <br />
                         <div>
