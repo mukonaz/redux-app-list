@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from './UserReducer';
+import { Link } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -17,6 +18,7 @@ function Login() {
             <input type="email" onChange={(e) => setEmail(e.target.value)} />
             <input type="password" onChange={(e) => setPassword(e.target.value)} />
             <button type="submit">Login</button>
+            <p>Don't have an account? <Link to="/register" >Sign Up</Link>  </p>
         </form>
     );
 }
