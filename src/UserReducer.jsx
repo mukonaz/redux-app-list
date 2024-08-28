@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
+
+
 
 const initialState = {
 
@@ -46,33 +48,3 @@ const userSlice = createSlice({
 export const { registerUser, loginUser, logoutUser ,addUser, deleteUser, updateUser } = userSlice.actions;
 export default userSlice.reducer;
 
-
-
-// import { createSlice } from '@reduxjs/toolkit';
-
-// const initialState = {
-//     users: [],
-//     currentUser: null,
-// };
-
-// const userSlice = createSlice({
-//     name: 'users',
-//     initialState,
-//     reducers: {
-//         registerUser: (state, action) => {
-//             state.users.push(action.payload);
-//         },
-//         loginUser: (state, action) => {
-//             const user = state.users.find(user => user.email === action.payload.email && user.password === action.payload.password);
-//             if (user) {
-//                 state.currentUser = user;
-//             }
-//         },
-//         logoutUser: (state) => {
-//             state.currentUser = null;
-//         },
-//     },
-// });
-
-// export const { registerUser, loginUser, logoutUser } = userSlice.actions;
-// export default userSlice.reducer;
